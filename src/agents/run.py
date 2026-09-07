@@ -1186,6 +1186,7 @@ class AgentRunner:
                                             run_state._reasoning_item_id_policy
                                         ),
                                         response_id=turn_result.model_response.response_id,
+                                        store=store_setting,
                                     )
                                 elif turn_session_items:
                                     run_state._current_turn_persisted_item_count = (
@@ -2130,6 +2131,7 @@ class AgentRunner:
                                             run_state._reasoning_item_id_policy
                                         ),
                                         response_id=turn_result.model_response.response_id,
+                                        store=store_setting,
                                     )
                                 else:
                                     await save_result_to_session(
