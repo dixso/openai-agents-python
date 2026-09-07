@@ -1185,6 +1185,7 @@ class AgentRunner:
                                         reasoning_item_id_policy=(
                                             run_state._reasoning_item_id_policy
                                         ),
+                                        response_id=turn_result.model_response.response_id,
                                     )
                                 elif turn_session_items:
                                     run_state._current_turn_persisted_item_count = (
@@ -1590,6 +1591,7 @@ class AgentRunner:
                             output_guardrail_results=output_guardrail_results,
                             save_items_after_guardrails=_save_max_turns_handler_output,
                             include_in_history=include_in_history,
+                            run_state=run_state,
                         )
                         if include_in_history and not handler_output_recorded:
                             await _save_max_turns_handler_output([synthesized_item])
@@ -2127,6 +2129,7 @@ class AgentRunner:
                                         reasoning_item_id_policy=(
                                             run_state._reasoning_item_id_policy
                                         ),
+                                        response_id=turn_result.model_response.response_id,
                                     )
                                 else:
                                     await save_result_to_session(
